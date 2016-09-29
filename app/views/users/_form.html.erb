@@ -1,0 +1,63 @@
+
+<%= form_for(user, html: {class:'form-horizontal'}) do |f| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger">
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "erros") %> impede esse usuário de ser cadastrado:</h2>
+
+        <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :email, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :zip_code, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :zip_code, class:'form-control', 'onBlur': 'pesquisacep(this.value);' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :street, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :street, class:'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :neighborhood, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :neighborhood, class:'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :city, class:'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :state, class:'col-sm-2 control-label' %>
+    <div class="col-md-10">
+      <%= f.text_field :state, class:'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Enviar', class:'btn btn-primary' %>
+  </div>
+<% end %>

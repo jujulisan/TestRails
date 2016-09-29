@@ -1,0 +1,39 @@
+<div class="col-md-4 col-md-push-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Usuários</h1>
+    </div>
+    <div class="panel-body">
+      <% if notice.present? %>
+        <div class="alert alert-success">
+          <p id="notice"><%= notice %></p>
+        </div>
+      <% end %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Cep</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.zip_code %></td>
+              <td><%= link_to 'Show', user %></td>
+              <td><%= link_to 'Edit', edit_user_path(user) %></td>
+              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer">
+      <%= link_to 'Novo Usuário', new_user_path %> |
+      <%= link_to 'Home', root_path %>
+    </div>
+  </div>
+</div>

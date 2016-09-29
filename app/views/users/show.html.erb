@@ -1,0 +1,46 @@
+<div class="col-md-4 col-md-push-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title"><%= @user.name %></h1>
+    </div>
+    <% if notice.present? %>
+      <div class="alert alert-success">
+        <p id="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <div class="panel-body">
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+
+      <p>
+        <strong>Cep:</strong>
+        <%= @user.zip_code %>
+      </p>
+      <p>
+        <strong>Rua:</strong>
+        <%= @user.street %>
+      </p>
+      <p>
+        <strong>Bairro:</strong>
+        <%= @user.neighborhood %>
+      </p>
+      <p>
+        <strong>Cidade:</strong>
+        <%= @user.city %>
+      </p>
+      <p>
+        <strong>Estado:</strong>
+        <%= @user.state %>
+      </p>
+    </div>
+    <div class="panel-footer">
+      <%= link_to 'Editar', edit_user_path(@user) %> |
+      <%= link_to 'Voltar', users_path %> |
+      <%= link_to 'Home', root_path %>
+    </div>
+  </div>
+</div>
+
+
